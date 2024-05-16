@@ -1,0 +1,23 @@
+{
+  "name": "com.klazapp.network",
+  "displayName": "Unity Network Private",
+  "version": "1.0.0",
+  "unity": "2022.3",
+  "description": "Enhance your Unity development workflow with Klazapp Script Creator, an editor tool for quick and standardized script generation from customizable templates, supporting both MonoBehaviour and ScriptableObject scripts.",
+  "keywords": [
+    "config",
+    "file",
+    "data"
+  ],
+  "category": "Utility",
+  "dependencies": {
+  },
+  "author": {
+      "name": "Klazapp",
+      "email": "klazapp@klazapp.com",
+      "url": "https://www.klazapp.com"
+    },
+    "documentationUrl": "https://github.com/klazapp/Unity-Network-Private",
+    "changelogUrl": "https://github.com/klazapp/Unity-Network-Private",
+    "licensesUrl": "https://github.com/klazapp/Unity-Network-Private"
+}
