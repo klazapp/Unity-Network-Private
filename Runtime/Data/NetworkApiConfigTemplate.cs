@@ -11,25 +11,45 @@ namespace com.Klazapp.Utility
         [Header("Network Api Config")]
         public NetworkApiConfigComponent networkApiConfigComponent;
         
-        public string BuildUrl(string basePath, params (string key, string value)[] queryParameters)
+        // public string BuildUrl(string basePath, params (string key, string value)[] queryParameters)
+        // {
+        //     var uriBuilder = new System.Text.StringBuilder($"{networkApiConfigComponent.baseUrl}{basePath}");
+        //     
+        //     if (queryParameters.Length <= 0) 
+        //         return uriBuilder.ToString();
+        //     
+        //     uriBuilder.Append("?");
+        //     
+        //     foreach (var (key, value) in queryParameters)
+        //     {
+        //         uriBuilder.Append($"{UnityWebRequest.EscapeURL(key)}={UnityWebRequest.EscapeURL(value)}&");
+        //     }
+        //     
+        //     uriBuilder.Length--; // Removes the last '&' for cleanliness
+        //     
+        //     return uriBuilder.ToString();
+        // }
+
+        public string BuildUrl(string endpointKey, params (string key, string value)[] queryParameters)
         {
-            var uriBuilder = new System.Text.StringBuilder($"{networkApiConfigComponent.baseUrl}{basePath}");
+            var endPointPath = GetUrlByEndPoint(endpointKey);
             
-            if (queryParameters.Length <= 0) 
+            var uriBuilder = new System.Text.StringBuilder($"{networkApiConfigComponent.baseUrl}{endPointPath}");
+
+            if (queryParameters.Length <= 0)
                 return uriBuilder.ToString();
-            
+
             uriBuilder.Append("?");
-            
             foreach (var (key, value) in queryParameters)
             {
                 uriBuilder.Append($"{UnityWebRequest.EscapeURL(key)}={UnityWebRequest.EscapeURL(value)}&");
             }
-            
             uriBuilder.Length--; // Removes the last '&' for cleanliness
-            
+
             return uriBuilder.ToString();
         }
 
+        
         public string GetUrlByEndPoint(string endPoint)
         {
             return networkApiConfigComponent.GetEndpointValue(endPoint);
